@@ -1,4 +1,6 @@
 package StartUpCalculator.ai.controller;
+import StartUpCalculator.ai.model.User;
+import StartUpCalculator.ai.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
@@ -6,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @Controller
 public class quiz{
@@ -18,11 +22,11 @@ public class quiz{
   }
 
     @Autowired
-    private ItemService itemService;
+    private UserService userService;
     
         @GetMapping("/items")
-    public List<Item> getAllItems() {
-        return itemService.getAllItems();
+    public List<User> getAllItems() {
+        return userService.getAllUsers();
     }
 
 }

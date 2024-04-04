@@ -1,4 +1,7 @@
 package StartUpCalculator.ai.repository;
+import StartUpCalculator.ai.model.User;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public class UserRepository {
+public interface UserRepository extends JpaRepository<User,Long> {
+
 }
