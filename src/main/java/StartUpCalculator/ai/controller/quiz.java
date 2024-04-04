@@ -24,9 +24,17 @@ public class quiz{
     @Autowired
     private UserService userService;
     
-        @GetMapping("/items")
-    public List<User> getAllItems() {
-        return userService.getAllUsers();
+        @GetMapping("/user")
+    public String getAllItems(Model model) {
+        
+        List<User> user=userService.getAllUsers();
+
+        System.out.print("------------------:");
+
+        System.out.print("------------------");
+        model.addAttribute("message",user.name);
+        return "index";
+
     }
 
 }
