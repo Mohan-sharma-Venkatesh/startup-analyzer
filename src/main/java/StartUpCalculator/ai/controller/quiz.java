@@ -1,4 +1,5 @@
 package StartUpCalculator.ai.controller;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,5 +16,14 @@ public class quiz{
     model.addAttribute("message", "we will win");
     return "index";
   }
+
+    @Autowired
+    private ItemService itemService;
+    
+        @GetMapping("/items")
+    public List<Item> getAllItems() {
+        return itemService.getAllItems();
+    }
+
 }
 
