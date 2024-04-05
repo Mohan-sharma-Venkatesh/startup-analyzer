@@ -17,25 +17,20 @@ public class quiz{
   @GetMapping("/")
   public String getHomePage(Model model)
   {
-    model.addAttribute("message", "we will win");
+    model.addAttribute("message", "we will---------------------- win");
     return "index";
   }
 
     @Autowired
     private UserService userService;
     
-        @GetMapping("/user")
+    @GetMapping("/users")
     public String getAllItems(Model model) {
         
-        List<User> user=userService.getAllUsers();
-
-        System.out.print("------------------:");
-
-        System.out.print("------------------");
-        model.addAttribute("message",user.name);
-        return "index";
-
+      List<User> userlist=userService.getAllUsers();
+        
+      model.addAttribute("users",userlist);
+      return "users";
     }
-
 }
 

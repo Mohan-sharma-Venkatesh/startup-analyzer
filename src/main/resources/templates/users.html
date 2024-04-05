@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -6,7 +7,11 @@
 </head>
 <body>
   <h1>Hello, World!</h1>
-   <h1 th:text="${message}"></h1>
+  <tr th:each="user: ${users}">
+    <td th:text="${user.id}" />
+    <td th:text="${user.name}" />
+  </tr>
+  </table>
 </body>
 </html>
 
