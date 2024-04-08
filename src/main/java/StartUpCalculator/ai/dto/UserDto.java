@@ -1,4 +1,4 @@
-Package StartUpCalculator.ai.dto; 
+package StartUpCalculator.ai.dto; 
 
 public class UserDto{
   private int id;
