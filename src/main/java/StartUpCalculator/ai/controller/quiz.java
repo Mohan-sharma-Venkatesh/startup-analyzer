@@ -28,7 +28,7 @@ public class quiz{
     public String getAllItems(Model model) {
         
       List<User> userlist=userService.getAllUsers();
-        
+      System.out.print(userlist); 
       model.addAttribute("users",userlist);
       return "users";
     }
