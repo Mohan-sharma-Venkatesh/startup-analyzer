@@ -1,9 +1,13 @@
-package StartUpCalculator.ai.dto; 
-
+package StartUpCalculator.ai.dto;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 public class UserDto {
+  @NotBlank(message= "Name is mandatory")
   private String email;
-  private String password;
 
+  @NotBlank(message = "Password is mandatory")
+  private String password;
+    
     public void setEmail(String email){
       this.email=email;
     } 
