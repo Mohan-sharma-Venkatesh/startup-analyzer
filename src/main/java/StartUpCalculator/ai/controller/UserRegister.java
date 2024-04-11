@@ -23,17 +23,24 @@ public class UserRegister{
     return "userRegister";
   }
   
-  @PostMapping(value="/register")
-  public ModelAndView register(@Valid @ModelAttribute("userDto") UserDto userDto, BindingResult result){
-    ModelAndView  modelAndView= new ModelAndView();
-    if (result.hasErrors()){
-      System.out.print("--------------------------------------"+result);
-      modelAndView.setView("register");
-      return modelAndView;
+ @PostMapping(value="/register")
+public ModelAndView register(@Valid @ModelAttribute("userDto") UserDto userDto, BindingResult result, Model model) {
+    ModelAndView modelAndView = new ModelAndView();
+    if (result.hasErrors()) {
+        System.out.print("--------------------------------------"+result);
+          List<FieldError> errors = result.getFieldErrors();
+            for (FieldError error : errors) {
+                System.out.println("Field: " + error.getField() + ", Error: " + error.getDefaultMessage());
+            }
+            // Add errors to model
+            model.addAttribute("errors", errors);
+        modelAndView.setViewName("userRegister");
+        return modelAndView;
     }
     userService.save(userDto);
-    return modelAndView.setView("index");
-  }
-    
+    modelAndView.setViewName("index");
+    return modelAndView;
+}
+   
 }
 

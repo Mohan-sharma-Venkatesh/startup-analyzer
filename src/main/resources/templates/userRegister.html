@@ -14,8 +14,6 @@
       <label for="email">Email:</label>
       <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
     </div>
-    <div th:each="field : ${#fields.fields('userDto')}" th:if="${field.hasErrors()}" class="error">
-    <p th:each="error : ${field.errors()}" th:text="${error}"></p>
 </div>
     <div class="form-group">
       <label for="password">Password:</label>
