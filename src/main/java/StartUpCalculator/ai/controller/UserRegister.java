@@ -20,10 +20,8 @@ public class UserRegister{
     return "userRegister";
   }
   
-  @PostMapping(value="/registers")
+  @PostMapping(value="/register")
   public String register(@ModelAttribute("userDto") UserDto userDto){
-    String userEmail= userDto.getEmail(); 
-    System.out.println("--------------"+ userEmail);
     userService.save(userDto);
     return "index";
   }
