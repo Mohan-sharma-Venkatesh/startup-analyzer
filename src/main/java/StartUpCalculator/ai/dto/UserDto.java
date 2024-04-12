@@ -3,7 +3,7 @@ package StartUpCalculator.ai.dto;
 import jakarta.validation.constraints.NotBlank;
 
 public class UserDto {
-  @NotBlank(message= "Name is mandatory")
+  @NotBlank(message= "Email is mandatory")
   private String email;
 
   @NotBlank(message = "Password is mandatory")

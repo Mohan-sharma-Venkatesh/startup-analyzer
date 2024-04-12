@@ -19,27 +19,20 @@ public class UserRegister{
   private UserService userService;
   
   @RequestMapping(value="/register")
-  public String getRegister(){
+  public String getRegister( @ModelAttribute("user") UserDto userDto){
     return "userRegister";
   }
   
- @PostMapping(value="/register")
-public ModelAndView register(@Valid @ModelAttribute("userDto") UserDto userDto, BindingResult result, Model model) {
-    ModelAndView modelAndView = new ModelAndView();
+  @PostMapping(value="/register")
+  public String register(@Valid @ModelAttribute("user") UserDto userDto, 
+      BindingResult result, Model model) {
     if (result.hasErrors()) {
-        System.out.print("--------------------------------------"+result);
-          List<FieldError> errors = result.getFieldErrors();
-            for (FieldError error : errors) {
-                System.out.println("Field: " + error.getField() + ", Error: " + error.getDefaultMessage());
-            }
-            // Add errors to model
-            model.addAttribute("errors", errors);
-        modelAndView.setViewName("userRegister");
-        return modelAndView;
+      model.addAttribute("user", userDto);
+      System.out.print("--------------------------------------"+result.getAllErrors());
+      return "userRegister";
     }
     userService.save(userDto);
-    modelAndView.setViewName("index");
-    return modelAndView;
+    return "index";
 }
    
 }
