@@ -21,7 +21,12 @@ public class UserRegister{
   
   @PostMapping(value="/register")
   public String register(@Valid @ModelAttribute("user") UserDto userDto, 
-      BindingResult result, Model model) {
+                                BindingResult result, Model model) {
+    boolean res = userService.existsByEmail(userDto);
+    if (res==true){
+      System.out.print("-------------============"+res);
+      return "userRegister";
+    }  
     if (result.hasErrors()) {
       model.addAttribute("user", userDto);
       return "userRegister";
@@ -29,6 +34,6 @@ public class UserRegister{
     userService.save(userDto);
     return "index";
   }
-
+  
 }
 

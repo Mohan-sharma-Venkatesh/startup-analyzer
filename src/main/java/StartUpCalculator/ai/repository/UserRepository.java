@@ -5,4 +5,8 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface UserRepository extends CrudRepository<User,Long>  {
   List<User> findAll();
+  @Query("select 1 from users where email= ?1)
+  boolean existsByEmail(String email);
+
+  save()
 }
