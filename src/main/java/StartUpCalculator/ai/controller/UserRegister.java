@@ -24,7 +24,6 @@ public class UserRegister{
                                 BindingResult result, Model model) {
     boolean res = userService.existsByEmail(userDto);
     if (res==true){
-      System.out.print("-------------============"+res);
       return "userRegister";
     }  
     if (result.hasErrors()) {
