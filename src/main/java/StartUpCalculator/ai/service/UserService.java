@@ -8,15 +8,16 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import static java.util.Objects.isNull;
+
 @Service
 public class UserService{
 
   @Autowired
   private UserRepository userRepository;
 
-  public int checkEmail(String email){
-    int userExists= userRepository.existsByEmail(email);
-    return userExists;
+  public boolean checkEmail(String email){
+    return isNull( userRepository.existsByEmail(email));
   }
 
   public User save(UserDto userDto){

@@ -24,8 +24,9 @@ public class UserRegister{
       BindingResult result, Model model) {
     
     String email= userDto.getEmail();
-    int test=userService.checkEmail(email);
-    System.out.println("---------------"+test);
+    if (userService.checkEmail(email) == false){
+      return "userRegister";
+    }
     if (result.hasErrors()) {
       model.addAttribute("user", userDto);
       return "userRegister";
