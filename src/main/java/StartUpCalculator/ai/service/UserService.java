@@ -14,6 +14,11 @@ public class UserService{
   @Autowired
   private UserRepository userRepository;
 
+  public int checkEmail(String email){
+    int userExists= userRepository.existsByEmail(email);
+    return userExists;
+  }
+
   public User save(UserDto userDto){
     User user= convertToEntity(userDto);
     return userRepository.save(user);

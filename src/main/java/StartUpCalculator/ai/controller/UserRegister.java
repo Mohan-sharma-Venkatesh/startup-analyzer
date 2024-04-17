@@ -22,6 +22,10 @@ public class UserRegister{
   @PostMapping(value="/register")
   public String register(@Valid @ModelAttribute("user") UserDto userDto, 
       BindingResult result, Model model) {
+    
+    String email= userDto.getEmail();
+    int test=userService.checkEmail(email);
+    System.out.println("---------------"+test);
     if (result.hasErrors()) {
       model.addAttribute("user", userDto);
       return "userRegister";
