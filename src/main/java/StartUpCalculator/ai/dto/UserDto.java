@@ -1,32 +1,33 @@
-package StartUpCalculator.ai.dto; 
+package StartUpCalculator.ai.dto;
 
-public class UserDto{
-  private int id;
-  private String name;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+
+public class UserDto {
+  @Email
+  @NotBlank(message= "Email is mandatory")
+  private String email;
+
+  @NotBlank(message = "Password is mandatory")
+  @Size(min=4, message= "The password must be minimum of 4 characters")
   private String password;
-
-    public void setId(int id){
-      this.id=id;
-    }
-
-    public int getId(){
-      return id;
-    }
     
-    public void setName(String name){
-      this.name=name;
-    } 
+  public void setEmail(String email){
+    this.email=email;
+  } 
 
-    public String getName(){
-      return name;
-    }
+  public String getEmail(){
+    return email;
+  }
 
-    public void setPassword(String password){
-      this.password= password;
-    }
+  public void setPassword(String password){
+    this.password= password;
+  }
 
-    public String getPassword(){
-      return password;
-    }
+  public String getPassword(){
+    return password;
+  }
+
 }
 
