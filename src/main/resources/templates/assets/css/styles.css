@@ -1,0 +1,261 @@
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Manrope", sans-serif;
+  font-size: 1.3em;
+  min-height: 100vh; /* Ensure container takes up at least the full viewport height */
+  box-sizing: border-box; /* Include padding and border in total width/height */
+  padding-bottom: 100px; /* Reserve space for the share box */
+  padding-top: 100px;
+}
+
+.stage {
+  margin: 4px; /* Reduce margin */
+  padding: 2px; /* Reduce padding */
+  text-align: center;
+}
+
+.active {
+  font-size: 30px; /* Increased font size for the highlighted stage */
+  font-weight: 800;
+}
+
+.inactive {
+  color: #ccc; /* Greyed out text color */
+  font-weight: 200;
+}
+
+.idea {
+  color: #E51A3C; /* Investor Stage color */
+  text-align: center;
+}
+
+.prep {
+  color: #E06629; /* funder Stage color */
+  text-align: center;
+}
+
+.launch {
+  color: #E0C229; /* Idea Stage color */
+  text-align: center;
+}
+
+.investor {
+  color: #00C4A2; /* Prep Stage color */
+  text-align: center;
+}
+
+.funder {
+  color: #00ACC4; /* Launch Stage color */
+  text-align: center;
+}
+
+.circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+}
+
+.score {
+  color:white;
+  font-weight: bold;
+  font-size: 80px;
+}
+
+.circle.idea {
+  background-color: #E51A3C; /* Investor Stage color */
+}
+
+.circle.prep {
+  background-color: #E06629; /* funder Stage color */
+}
+
+.circle.launch {
+  background-color: #E0C229; /* Idea Stage color */
+}
+
+.circle.investor {
+  background-color: #00C4A2; /* Prep Stage color */
+}
+
+.circle.funder {
+  background-color: #00ACC4; /* Launch Stage color */
+}
+
+.nextstep {
+  text-align: center;
+  margin: 4%;
+  padding: 1%;
+  font-size: 1em;
+  min-height: 4.5em; /* Minimum height for three lines */
+  line-height: 1.5; /* Adjust line height for spacing */
+}
+
+.share-box {
+  background-color: #004F70;
+  color: white;
+  padding: 4%; 
+  bottom: 0;
+  left: 0;
+  right: 0; /* Set right to 0 to cover entire width */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.share-text {
+  font-size: 20px;
+  font-weight: 500;
+  margin-right: 20px; /* Adjust margin between text and icons */
+}
+
+.share-icons {
+  display: flex;
+}
+
+.share-link {
+  margin-left: 10px; /* Adjust margin between icons */
+}
+
+/* Hide overflow for body to prevent unnecessary scrollbars */
+body {
+  overflow-x: hidden;
+}
+
+/* Allow vertical scrolling for the container */
+.container {
+  overflow-y: auto;
+}
+
+.feedback-box {
+  background-color: #004F70; /* Inherit background color */
+  color: white;
+  padding: 20px;
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative; /* Added position */
+}
+
+.inner-box {
+  display: flex;
+  flex-direction: column; /* Set flex-direction to column */
+  align-items: center; /* Center align items */
+}
+.dropdown {
+  width: 45%;
+}
+
+.dropdown-header {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid white;
+}
+
+.dropdown-header img {
+  width: 20px;
+  margin-right: 10px;
+}
+
+.dropdown-content {
+  padding: 10px;
+}
+
+/* Style for green and red dropdowns */
+.green .dropdown-header {
+  color: #2ecc71; /* Green color */
+}
+
+.red .dropdown-header {
+  color: #e74c3c; /* Red color */
+}
+
+/* Hover effefct for dropdown header */
+.dropdown-header:hover {
+  background-color: #3d7aad; /* Darker color on hover */
+}
+
+.green, .red {
+  margin-bottom: 20px; /* Added margin between green and red boxes */
+}
+
+.feedback-box .dropdown {
+  background-color: #3d7aad; /* Add white background */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px; /* Padding for space */
+  width: 80%; /* Adjust width as needed */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#questionsContainer {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #004F70;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #02648e;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+button#prevBtn {
+    float: left;
+}
+
+button#nextBtn {
+    float: right;
+}
+
+button#submitBtn {
+    margin-top: 10px;
+    float: right;
+}
+
